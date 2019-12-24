@@ -60,7 +60,7 @@
 }
 
 #cube .front  { transform: rotateY(   0deg ) translateZ( 40px ); background: hsla(   0, 100%, 50%, 0.7 ); }
-#cube .back   { transform: rotateX( 180deg ) translateZ( 40px ); background: hsla(  60, 100%, 50%, 0.7 ); }
+#cube .back   { transform: rotateY( -180deg ) translateZ( 40px ); background: hsla(  60, 100%, 50%, 0.7 ); }
 #cube .right  { transform: rotateY(  90deg ) translateZ( 160px ); background: hsla( 120, 100%, 50%, 0.7 ); }
 #cube .left   { transform: rotateY( -90deg ) translateZ( 140px ); background: hsla( 180, 100%, 50%, 0.7 ); }
 #cube .top    { transform: rotateX(  90deg ) translateZ( 90px ); background: hsla( 240, 100%, 50%, 0.7 ); }
