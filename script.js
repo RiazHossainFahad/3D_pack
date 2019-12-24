@@ -53,7 +53,7 @@ function checkPortion(x_deg, y_deg) {
     rotate_top()
   } else if (y_deg > -140 && y_deg <= -70) {
     rotate_bottom()
-  } else if (x_deg > -460 && x_deg <= -280 || x_deg > 280 && x_deg <= 460 || y_deg > 150 && y_deg <= 230 || y_deg > -230 && y_deg <= -150) {
+  } else if (x_deg > -460 && x_deg <= -280 || x_deg > 280 && x_deg <= 460) {
     rotate_back();
   } else if (x_deg > -280 && x_deg <= -100 || x_deg > 460 && x_deg <= 640) {
     rotate_right();
