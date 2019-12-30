@@ -94,3 +94,11 @@ function rotate_right() {
 function rotate_back() {
   rotateCube(180, 0);
 }
+
+
+// png changes
+function change_back_logo(src_number) {
+
+  rotate_back();
+  document.getElementById('back_logo').setAttribute('src', `images/logos/logo/logo_back_${src_number}.JPG`)
+}

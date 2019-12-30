@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>3D PACK</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-      <section class="container">
-        <div id="cube">
-          <div class="side front"><img draggable="false" src="images/Front.png" alt="Front"></div>
-          <div class="side back"><img draggable="false" src="images/Back.png" alt="Back"></div>
-          <div class="side right"><img draggable="false" src="images/Side -  Left.png" alt="Left"></div>
-          <div class="side left"><img draggable="false" src="images/Side - Right.png" alt="Right"></div>
-          <div class="side top"><img draggable="false" src="images/Top.png" alt="Top"></div>
-          <div class="side bottom"><img draggable="false" src="images/Bottom.png" alt="Bottom"></div>
-        </div>
-      </section>
-      <section >
-        <button onclick="rotate_front()">front</button>
-        <button onclick="rotate_back()">back</button>
-        <button onclick="rotate_top()">Top</button>
-        <button onclick="rotate_bottom()">bottom</button>
 
-        <button onclick="rotate_left()">left</button>
-        <button onclick="rotate_right()">right</button>
-      </section>
-      <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-      <script src="script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D PACK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="container">
+    <div id="cube">
+      <div class="side front">
+        <img draggable="false" src="images/logos/goldleaf/goldleaf_front_1.JPG" alt="Front">
+
+        <!-- <img draggable="false" src="images/Front.png" alt="Front"> -->
+      </div>
+      <div class="side back">
+        <!-- <img draggable="false" src="images/Back.png" alt="Back"> -->
+        <img draggable="false" id="back_logo" src="images/logos/logo/logo_back_3.JPG" alt="Front">
+      </div>
+      <div class="side right">
+        <!-- <img draggable="false" src="images/Side -  Left.png" alt="Left"> -->
+      </div>
+      <div class="side left">
+        <!-- <img draggable="false" src="images/Side - Right.png" alt="Right"> -->
+      </div>
+      <div class="side top">
+        <!-- <img draggable="false" src="images/Top.png" alt="Top"> -->
+      </div>
+      <div class="side bottom">
+        <!-- <img draggable="false" src="images/Bottom.png" alt="Bottom"> -->
+      </div>
+    </div>
+  </section>
+  <section class="rotate_mach">
+    <button onclick="rotate_front()">front</button>
+    <button onclick="rotate_back()">back</button>
+    <button onclick="rotate_top()">Top</button>
+    <button onclick="rotate_bottom()">bottom</button>
+
+    <button onclick="rotate_left()">left</button>
+    <button onclick="rotate_right()">right</button>
+  </section>
+
+  <section class="back_logos">
+
+    <div class="back_text">
+      Back
+    </div>
+
+
+
+    <div class="">
+      <img class="curser_pointer" src="images/logos/logo/logo_back_1.JPG" alt="" onclick="change_back_logo(1)">
+      <img class="curser_pointer" src="images/logos/logo/logo_back_2.JPG" alt="" onclick="change_back_logo(2)">
+      <img class="curser_pointer" src="images/logos/logo/logo_back_3.JPG" alt="" onclick="change_back_logo(3)">
+      <img class="curser_pointer" src="images/logos/logo/logo_back_4.jpg" alt="" onclick="change_back_logo(4)">
+    </div>
+
+  </section>
+
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
