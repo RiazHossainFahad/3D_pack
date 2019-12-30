@@ -9,23 +9,25 @@
 </head>
 <body>
       <section class="container">
+        
         <div id="cube">
-          <div class="side front"><img draggable="false" src="images/Front.png" alt="Front"></div>
-          <div class="side back"><img draggable="false" src="images/Back.png" alt="Back"></div>
-          <div class="side right"><img draggable="false" src="images/Side -  Left.png" alt="Left"></div>
-          <div class="side left"><img draggable="false" src="images/Side - Right.png" alt="Right"></div>
-          <div class="side top"><img draggable="false" src="images/Top.png" alt="Top"></div>
-          <div class="side bottom"><img draggable="false" src="images/Bottom.png" alt="Bottom"></div>
+          <div class="side front"><img draggable="false" id="front" src="sides/Base Pack/Front.png" alt="Front"></div>
+          <div class="side back"><img draggable="false" id="back" src="sides/Base Pack/Back.png" alt="Back"></div>
+          <div class="side right"><img draggable="false" id="left" src="sides/Base Pack/Left.png" alt="Right"></div>
+          <div class="side left"><img draggable="false" id="right" src="sides/Base Pack/Right.png" alt="Left"></div>
+          <div class="side top"><img draggable="false" id="top" src="sides/Base Pack/Top.png" alt="Top"></div>
+          <div class="side bottom"><img draggable="false" id="bottom" src="sides/Base Pack/Bottom.png" alt="Bottom"></div>
         </div>
       </section>
       <section >
-        <button onclick="rotate_front()">front</button>
-        <button onclick="rotate_back()">back</button>
-        <button onclick="rotate_top()">Top</button>
-        <button onclick="rotate_bottom()">bottom</button>
 
-        <button onclick="rotate_left()">left</button>
-        <button onclick="rotate_right()">right</button>
+        <button onclick="change_front()">front</button>
+        <button onclick="change_back()">back</button>
+        <button onclick="change_top()">Top</button>
+        <button onclick="change_bottom()">bottom</button>
+
+        <button onclick="change_left()">left</button>
+        <button onclick="change_right()">right</button>
       </section>
       <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
       <script src="script.js"></script>

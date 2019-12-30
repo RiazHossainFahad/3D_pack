@@ -2,74 +2,66 @@ var deltaX = 0;
 var deltaY = 0;
 var lastX = 0;
 var lastY = 0;
+var previousX = 0;
+var previousY = 0;
+
 function rotateCube(distanceY, distanceX) {
   document.getElementById('cube').style.transition = "transform 0s";
 
-  if (distanceY === void 0) {distanceY = 0;}
-  if (distanceX === void 0) {distanceX = 0;}
+  if (distanceY === void 0) {
+    distanceY = 0;
+  }
+  if (distanceX === void 0) {
+    distanceX = 0;
+  }
   document.getElementById('cube').style.transform = "rotateY(" + distanceY + "deg) rotateX(" + distanceX + "deg)";
-   lastX = distanceX % 360;
-   lastY = distanceY % 360;
-   console.log("In", lastX, lastY);
+  lastX = distanceX;
+  lastY = distanceY;
 }
 var hammertime = new Hammer(document.querySelector('.container'));
-hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+hammertime.get('pan').set({
+  direction: Hammer.DIRECTION_ALL
+});
 hammertime.on('pan', function (ev) {
-  console.log("start", deltaX, deltaY);
 
-  let xdeg = Math.atan(ev.deltaX) * (180/Math.PI);
-  let ydeg = Math.atan(ev.deltaY) * (180/Math.PI);
-  //console.log("Y: " + ydeg, round90(ydeg), ev.deltaY)
-  //console.log("X: " + ev.deltaX%360)
-  // console.log(ev.deltaX / 2 + deltaX);
+  let x_rotate = (ev.deltaX + previousX) % 720;
+  let y_rotate = (ev.deltaY + lastX) % 720;
+
+  // console.log("X: " + x_rotate + " previousX: " + previousX);
+  console.log("End X: " + x_rotate + " End Y: " + y_rotate);
+
   rotateCube(ev.deltaX / 2 + deltaX, -ev.deltaY / 2 + deltaY);
 });
 hammertime.on('panend', function (ev) {
-  
-/**Initial step after swipe */
-  //  deltaX = lastY = 0;
-  //  deltaY = lastX = 0;
-  // let xdeg = Math.atan(deltaX) * (180/Math.PI);
-  // let ydeg = Math.atan(deltaY) * (180/Math.PI);
-  
-  /**Initial step after swipe  */
-  // rotateCube(0,0);
 
-  // document.getElementById('cube').style.transform = "rotateY(" + 0 + "deg) rotateX(" + 0 + "deg)";
-  // document.getElementById('cube').style.transition = "transform 3s";
-  // console.log(round90(ydeg))
+  let x_rotate = (ev.deltaX + previousX) % 720;
+  let y_rotate = (ev.deltaY + lastX) % 720;
 
-  // Rotate
-  let x_rotate = ev.deltaX % 360;
-  console.log("X: " + x_rotate);
-
-  checkPortion(x_rotate);
-
+  console.log("End X: " + x_rotate + " End Y: " + y_rotate);
+  checkPortion(x_rotate, y_rotate);
   deltaX = lastY;
   deltaY = lastX;
-  console.log("End", deltaX, deltaY);
+  previousX = x_rotate;
+  previousY = y_rotate;
+
 });
 
-function round90(deg){
-  return Math.round(deg/90);
-  // return deg < 0 ? (Math.floor(deg/90)*90) : (Math.ceil(deg/90)*90);
-}
 
 
-function checkPortion(x_deg){
-  if(x_deg >-360  && x_deg <=-270 || x_deg >270  && x_deg <=360 ){
+function checkPortion(x_deg, y_deg) {
+  if (y_deg > 70 && y_deg <= 140) {
+    rotate_top()
+  } else if (y_deg > -140 && y_deg <= -70) {
+    rotate_bottom()
+  } else if (x_deg > -460 && x_deg <= -280 || x_deg > 280 && x_deg <= 460) {
     rotate_back();
-  }
-  else if(x_deg >-270  && x_deg <=-90){
+  } else if (x_deg > -280 && x_deg <= -100 || x_deg > 460 && x_deg <= 640) {
     rotate_right();
-  }
-  else if (x_deg >-90 && x_deg <=90) {
+  } else if (x_deg > -100 && x_deg <= 100 || x_deg > -720 && x_deg <= -720 || x_deg > 640 && x_deg <= 720) {
     rotate_front();
-  }
-  else if (x_deg >90 && x_deg <=270) {
+  } else if (x_deg > -640 && x_deg <= -460 || x_deg > 100 && x_deg <= 280) {
     rotate_left();
-  }
-  else{
+  } else {
     rotate_front();
   }
   document.getElementById('cube').style.transition = "transform 3s";
@@ -78,24 +70,63 @@ function checkPortion(x_deg){
 
 // 6 panes
 // according X Axis
-function rotate_front(){
-  rotateCube(0,0);
+function rotate_front() {
+  rotateCube(15, 0);
 }
 
-function rotate_top(){
-  rotateCube(0,-90);
+function rotate_top() {
+  rotateCube(0, -89);
 }
-function rotate_bottom(){
-  rotateCube(0,90);
+
+function rotate_bottom() {
+  rotateCube(0, 89);
 }
 
 // according Y Axis
-function rotate_left(){
-  rotateCube(90,0);
+function rotate_left() {
+  rotateCube(80, 0);
 }
-function rotate_right(){
-  rotateCube(-90,0);
+
+function rotate_right() {
+  rotateCube(-80, 0);
 }
-function rotate_back(){
-  rotateCube(180,0);
+
+function rotate_back() {
+  rotateCube(170, 0);
+}
+
+function changeCube(side){
+
+}
+
+/**Change Image */
+function change_front() {
+  changeCube("front");
+  rotateCube(15, 0);
+}
+
+function change_top() {
+  changeCube("top");
+  rotateCube(0, -80);
+}
+
+function change_bottom() {
+  changeCube("bottom");
+  rotateCube(0, 80);
+}
+
+// according Y Axis
+function change_left() {
+  changeCube("left");
+  rotateCube(80, 0);
+}
+
+function change_right() {
+  changeCube("right");
+  rotateCube(-80, 0);
+}
+
+function change_back() {
+  changeCube("back");
+  rotateCube(170, 0);
 }
