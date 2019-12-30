@@ -234,6 +234,11 @@
 
 .top_color3 {
   background-color: #245d9d;
+
+}
+
+.active {
+  border: 3px solid black;
 }
 
 .btn {

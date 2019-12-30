@@ -105,10 +105,23 @@ function change_signature(src_number) {
   document.getElementById('front_sign').setAttribute('src', `sides/C1Signature/Front/c1-front-f${src_number}.png`)
   document.getElementById('left_sign').setAttribute('src', `sides/C1Signature/Left/c1-front-l${src_number}.png`)
   document.getElementById('bottom_sign').setAttribute('src', `sides/C1Signature/Bottom/c1-front-bt${src_number}.png`)
+
+
+
+  document.getElementsByClassName('sign active')[0].classList.remove("active");
+  document.getElementsByClassName('sign')[src_number - 1].classList.add("active");
+
+  // document.getElementsByClassName('active')[0].classList.remove("active");
+
+
+
 }
 
 function change_roundel(src_number) {
   document.getElementById('front_circle').setAttribute('src', `sides/C2Roundel/Front/c2-roundel-a${src_number}.png`)
+
+  document.getElementsByClassName('round active')[0].classList.remove("active");
+  document.getElementsByClassName('round')[src_number - 1].classList.add("active");
 }
 
 function change_top(src_number) {
@@ -117,6 +130,9 @@ function change_top(src_number) {
   document.getElementById('left_top').setAttribute('src', `sides/C3Top/Left/c3-top-l${src_number}.png`)
   document.getElementById('right_top').setAttribute('src', `sides/C3Top/Right/c3-top-r${src_number}.png`)
   document.getElementById('top_top').setAttribute('src', `sides/C3Top/Top/c3-top-t${src_number}.png`)
+
+  document.getElementsByClassName('top_color active')[0].classList.remove("active");
+  document.getElementsByClassName('top_color')[src_number - 1].classList.add("active");
 }
 
 function reset_to_front() {
