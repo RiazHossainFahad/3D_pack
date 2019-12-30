@@ -11,7 +11,7 @@
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transform: rotateY(15deg) rotateX(0deg);
+  /* transform: rotateY(15deg) rotateX(0deg); */
 
   /* transition: transform 1s; */
   /* animation: rotate-all 10s linear infinite; */
@@ -63,38 +63,44 @@
 
 #cube .front {
   transform: rotateY(0deg) translateZ(40px);
-  background: hsla(0, 100%, 50%, 0.7);
-  background-image: url("images/Front.png");
+  /* background: hsla(0, 100%, 50%, 0.7); */
+  background: #000;
+  background-image: url("sides/BasePack/Front.png");
 }
 
 #cube .back {
   transform: rotateY(-180deg) translateZ(40px);
-  background: hsla(60, 100%, 50%, 0.7);
-  background-image: url("images/Back.png");
+  /* background: hsla(60, 100%, 50%, 0.7); */
+  background: #000;
+  background-image: url("sides/BasePack/Back.png");
 }
 
 #cube .right {
   transform: rotateY(90deg) translateZ(160px);
-  background: hsla(120, 100%, 50%, 0.7);
-  background-image: url("images/Side -  Left.png");
+  /* background: hsla(120, 100%, 50%, 0.7); */
+  background: #000;
+  background-image: url("sides/BasePack/Left.png");
 }
 
 #cube .left {
   transform: rotateY(-90deg) translateZ(140px);
-  background: hsla(180, 100%, 50%, 0.7);
-  background-image: url("images/Side - Right.png");
+  /* background: hsla(180, 100%, 50%, 0.7); */
+  background: #000;
+  background-image: url("sides/BasePack/Right.png");
 }
 
 #cube .top {
   transform: rotateX(90deg) translateZ(90px);
-  background: hsla(240, 100%, 50%, 0.7);
-  background-image: url("images/Top.png");
+  /* background: hsla(240, 100%, 50%, 0.7); */
+  background: #000;
+  background-image: url("sides/BasePack/Top.png");
 }
 
 #cube .bottom {
   transform: rotateX(-90deg) translateZ(110px);
-  background: hsla(300, 100%, 50%, 0.7);
-  background-image: url("images/Bottom.png");
+  /* background: hsla(300, 100%, 50%, 0.7); */
+  background: #000;
+  background-image: url("sides/BasePack/Bottom.png");
 }
 
 @keyframes rotate-all {
@@ -149,8 +155,20 @@
   align-items: space-between;
 }
 
-#back_logo {
+.back_side {
   position: absolute;
-  top: 36px;
-  left: 25px;
+  top: 0;
+  left: 0;
+}
+
+.front_side {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.left_side {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
