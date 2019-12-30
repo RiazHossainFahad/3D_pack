@@ -11,6 +11,8 @@
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
+  transform: rotateY(15deg) rotateX(0deg);
+
   /* transition: transform 1s; */
   /* animation: rotate-all 10s linear infinite; */
 }
