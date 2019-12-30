@@ -5,6 +5,8 @@ var lastY = 0;
 var previousX = 0;
 var previousY = 0;
 
+var enable = true;
+
 function rotateCube(distanceY, distanceX) {
   document.getElementById('cube').style.transition = "transform 0s";
 
@@ -38,7 +40,9 @@ hammertime.on('panend', function (ev) {
   let y_rotate = (ev.deltaY + lastX) % 720;
 
   console.log("End X: " + x_rotate + " End Y: " + y_rotate);
-  checkPortion(x_rotate, y_rotate);
+  if (enable) {
+    checkPortion(x_rotate, y_rotate);
+  }
   deltaX = lastY;
   deltaY = lastX;
   previousX = x_rotate;
@@ -97,8 +101,45 @@ function rotate_back() {
 
 
 // png changes
-function change_back_logo(src_number) {
+function change_signature(src_number) {
+  document.getElementById('front_sign').setAttribute('src', `sides/C1Signature/Front/c1-front-f${src_number}.png`)
+  document.getElementById('left_sign').setAttribute('src', `sides/C1Signature/Left/c1-front-l${src_number}.png`)
+  document.getElementById('bottom_sign').setAttribute('src', `sides/C1Signature/Bottom/c1-front-bt${src_number}.png`)
+}
 
-  rotate_back();
-  document.getElementById('back_logo').setAttribute('src', `images/logos/logo/logo_back_${src_number}.JPG`)
+function change_roundel(src_number) {
+  document.getElementById('front_circle').setAttribute('src', `sides/C2Roundel/Front/c2-roundel-a${src_number}.png`)
+}
+
+function change_top(src_number) {
+  document.getElementById('front_top').setAttribute('src', `sides/C3Top/Front/c3-top-f${src_number}.png`)
+  document.getElementById('back_top').setAttribute('src', `sides/C3Top/Back/c3-top-b${src_number}.png`)
+  document.getElementById('left_top').setAttribute('src', `sides/C3Top/Left/c3-top-l${src_number}.png`)
+  document.getElementById('right_top').setAttribute('src', `sides/C3Top/Right/c3-top-r${src_number}.png`)
+  document.getElementById('top_top').setAttribute('src', `sides/C3Top/Top/c3-top-t${src_number}.png`)
+}
+
+function reset_to_front() {
+  deltaX = 0;
+  deltaY = 0;
+  lastX = 0;
+  lastY = 0;
+  previousX = 0;
+  previousY = 0;
+  enable = true;
+  rotate_front(0, 0);
+  document.getElementById('btn_anim').innerHTML = "Animation: On";
+  // toggle_animation();
+}
+
+function toggle_animation() {
+  if (enable) {
+    document.getElementById('btn_anim').innerHTML = "Animation: Off";
+    document.getElementById('btn_anim').style.backgroundColor = "#4CAF50";
+  } else {
+    document.getElementById('btn_anim').innerHTML = "Animation: On";
+    document.getElementById('btn_anim').style.backgroundColor = "teal";
+
+  }
+  enable = !enable;
 }

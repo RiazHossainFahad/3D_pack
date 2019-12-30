@@ -13,32 +13,35 @@
   <section class="container">
     <div id="cube">
       <div class="side front">
-        <img draggable="false" class="front_side" src="sides/C3Top/Front/c3-top-f1.png" alt="Front">
-        <img draggable="false" class="front_side" src="sides/C1Signature/Front/c1-front-f2.png" alt="Front">
-        <img draggable="false" class="front_side" src="sides/C2Roundel/Front/c2-roundel-a1.png" alt="Front">
+        <img draggable="false" id="front_top" class="front_side" src="sides/C3Top/Front/c3-top-f1.png" alt="Front">
+        <img draggable="false" id="front_sign" class="front_side" src="sides/C1Signature/Front/c1-front-f1.png"
+          alt="Front">
+        <img draggable="false" id="front_circle" class="front_side" src="sides/C2Roundel/Front/c2-roundel-a1.png"
+          alt="Front">
 
         <!-- <img draggable="false" src="images/Front.png" alt="Front"> -->
       </div>
       <div class="side back">
         <!-- <img draggable="false" src="images/Back.png" alt="Back"> -->
-        <img draggable="false" class="back_side" src="sides/C3Top/Back/c3-top-b1.png" alt="Front">
+        <img draggable="false" id="back_top" class="back_side" src="sides/C3Top/Back/c3-top-b1.png" alt="Back">
       </div>
       <div class="side right">
-        <img draggable="false" class="left_side" src="sides/C3Top/Left/c3-top-l1.png" alt="Left">
-        <img draggable="false" class="left_side" src="sides/C1Signature/Left/c1-front-l1.png" alt="Left">
+        <img draggable="false" id="left_top" class="left_side" src="sides/C3Top/Left/c3-top-l1.png" alt="Left">
+        <img draggable="false" id="left_sign" class="left_side" src="sides/C1Signature/Left/c1-front-l1.png" alt="Left">
       </div>
       <div class="side left">
-        <img draggable="false" class="right_side" src="sides/C3Top/Right/c3-top-r1.png" alt="Right">
+        <img draggable="false" id="right_top" class="right_side" src="sides/C3Top/Right/c3-top-r1.png" alt="Right">
       </div>
       <div class="side top">
-        <img draggable="false" class="top_side" src="sides/C3Top/Top/c3-top-t1.png" alt="Top">
+        <img draggable="false" id="top_top" class="top_side" src="sides/C3Top/Top/c3-top-t1.png" alt="Top">
       </div>
       <div class="side bottom">
-        <img draggable="false" class="bottom_side" src="sides/C1Signature/Bottom/c1-front-bt1.png" alt="Bottom">
+        <img draggable="false" id="bottom_sign" class="bottom_side" src="sides/C1Signature/Bottom/c1-front-bt1.png"
+          alt="Bottom">
       </div>
     </div>
   </section>
-  <section class="rotate_mach">
+  <!-- <section class="rotate_mach">
     <button onclick="rotate_front()">front</button>
     <button onclick="rotate_back()">back</button>
     <button onclick="rotate_top()">Top</button>
@@ -46,27 +49,57 @@
 
     <button onclick="rotate_left()">left</button>
     <button onclick="rotate_right()">right</button>
-  </section>
-
-  <!-- <section class="back_logos">
-
-    <div class="back_text">
-      Back
-    </div>
-
-
-
-    <div class="">
-      <img class="curser_pointer" src="images/logos/logo/logo_back_1.JPG" alt="" onclick="change_back_logo(1)">
-      <img class="curser_pointer" src="images/logos/logo/logo_back_2.JPG" alt="" onclick="change_back_logo(2)">
-      <img class="curser_pointer" src="images/logos/logo/logo_back_3.JPG" alt="" onclick="change_back_logo(3)">
-      <img class="curser_pointer" src="images/logos/logo/logo_back_4.jpg" alt="" onclick="change_back_logo(4)">
-    </div>
-
   </section> -->
 
-  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-  <script src="script.js"></script>
+
+  <div class="color_section">
+    <div>
+      <section class="rotate_mach">
+        <button class="btn" onclick="reset_to_front()">Reset To front</button>
+        <button id="btn_anim" class="btn" onclick="toggle_animation()">Animation: On</button>
+      </section>
+      <section class="back_logos">
+        <div class="back_text">
+          Signature
+        </div>
+        <div class="color_box_display">
+          <div class="color_box curser_pointer Signature_color1" onclick="change_signature(1)"></div>
+          <div class="color_box curser_pointer Signature_color2" onclick="change_signature(2)"></div>
+          <div class="color_box curser_pointer Signature_color3" onclick="change_signature(3)"></div>
+          <div class="color_box curser_pointer Signature_color4" onclick="change_signature(4)"></div>
+          <div class="color_box curser_pointer Signature_color5" onclick="change_signature(5)"></div>
+        </div>
+      </section>
+
+      <section class="back_logos">
+        <div class="back_text">
+          Roundel
+        </div>
+        <div class="color_box_display">
+          <div class="color_box curser_pointer roundel_color1" onclick="change_roundel(1)"></div>
+          <div class="color_box curser_pointer roundel_color2" onclick="change_roundel(2)"></div>
+          <div class="color_box curser_pointer roundel_color3" onclick="change_roundel(3)"></div>
+          <div class="color_box curser_pointer roundel_color4" onclick="change_roundel(4)"></div>
+          <div class="color_box curser_pointer roundel_color5" onclick="change_roundel(5)"></div>
+        </div>
+      </section>
+
+      <section class="back_logos back_logos_top">
+        <div class="back_text">
+          Top
+        </div>
+        <div class="color_box_display ">
+          <div class="color_box curser_pointer top_color1" onclick="change_top(1)"></div>
+          <div class="color_box curser_pointer top_color2" onclick="change_top(2)"></div>
+          <div class="color_box curser_pointer top_color3" onclick="change_top(3)"></div>
+
+        </div>
+      </section>
+    </div>
+
+
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
